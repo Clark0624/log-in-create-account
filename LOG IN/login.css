@@ -4,14 +4,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ================= NAVBAR ================= */
-.custom-navbar {
-  background: #FFFFFF;
-  border-bottom: 1px solid #DBEAFE;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  padding: 12px 16px;
-  z-index: 50;
-}
+
 
 /* Logo */
 .logo-icon {
@@ -33,60 +26,114 @@ body {
   line-height: 1;
 }
 
-.logo-login{
-    width: 100px;
-    height:100px;
-    object-position: fixed;
+.logo-login {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+
+  /* makes background blend nicer */
+  background: transparent;
+
+  /* adds white glow effect (looks clean on blue) */
+  filter: grayscale(100%);
+
+  /* optional: soften edges */
+  mix-blend-mode: overlay;
+}
+.left-panel img {
+  width: 700px;
+  height: 700px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  position: absolute;
+  z-index: 0;
+  opacity: 0.3;
+  
 }
 
-/* ================= SEARCH ================= */
-.search-input {
-  background: #EFF6FF;
-  border: 1px solid #DBEAFE;
-  border-radius: 12px;
-  padding: 8px 12px 8px 36px;
-  color: #1E3A5F;
+
+
+
+/* ================= SPLIT LAYOUT ================= */
+.split-container {
+  display: flex;
+  min-height: 100vh;
 }
 
-.search-input::placeholder {
-  color: #93C5FD;
+/* LEFT PANEL */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #3B82F6, #1E3A5F);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
 }
 
-.search-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #3B82F6;
-  border-color: #3B82F6;
+.left-content {
+  position: relative;
+  z-index: 2; /* ensures it's above background */
+  max-width: 420px;
 }
 
-/* ================= NAV LINKS ================= */
-.nav-custom {
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: #334155 !important;
-  font-size: 14px;
-  transition: background 0.2s ease;
+.left-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.nav-custom:hover {
-  background: #EFF6FF;
+.left-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
-/* ================= DROPDOWN ================= */
-.custom-dropdown {
-  border-radius: 16px;
-  border: 1px solid #DBEAFE;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-  padding: 6px 0;
+.left-content p {
+  font-size: 10rem;
+  opacity: 10;
 }
 
-.dropdown-item {
-  padding: 8px 16px;
-  font-size: 14px;
-  color: #1E3A5F;
+.left-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
-.dropdown-item:hover {
-  background: #EFF6FF;
+.left-content li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.left-content i {
+  color: #22c55e;
+  margin-right: 8px;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 1;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    padding: 30px;
+    text-align: center;
+  }
 }
 
 /* ================= USER ================= */
@@ -182,11 +229,11 @@ body {
 }
 
 .footer a {
-  display: block;
   color: #93C5FD;
-  text-decoration: none;
+  display: block;
   margin-bottom: 6px;
   font-size: 14px;
+  transition: color 0.2s ease;
 }
 
 .footer a:hover {
@@ -194,33 +241,35 @@ body {
 }
 
 .footer-title {
-  font-weight: 600;
-  margin-bottom: 10px;
   color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .footer-text {
+  color: #93C5FD;
   font-size: 14px;
-  color: #93C5FD;
+  line-height: 1.6;
 }
 
-/* SOCIAL ICONS */
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-right: 8px;
-  border-radius: 50%;
-  background: #2D4E78;
-  color: #93C5FD;
-  transition: 0.3s;
+.footer-bottom {
+  border-top: 1px solid #2D4E78;
+  margin-top: 30px;
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  color: #6B8DB5;
 }
-
-.footer-social a:hover {
-  background: #3B82F6;
-  color: #FFFFFF;
+/* SOCIAL ICONS CONTAINER */
+/* CONTAINER */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 /* EACH ICON */
@@ -274,4 +323,138 @@ body {
 .contact-item div {
   color: #BFDBFE;
   line-height: 1.4;
+}
+/* ================= BASE SPLIT ================= */
+.split-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT PANEL */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #3B82F6, #1E3A5F);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.left-content {
+  max-width: 420px;
+}
+
+.left-content h1 {
+  font-size: 2.5rem;
+}
+
+.left-content p {
+  font-size: 1rem;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 1;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+  .left-content h1 {
+    font-size: 2rem;
+  }
+
+  .left-panel {
+    padding: 40px 30px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .split-container {
+    flex-direction: column;
+  }
+
+  /* LEFT becomes top banner */
+  .left-panel {
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .left-content {
+    max-width: 100%;
+  }
+
+  .left-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .left-content p {
+    font-size: 0.95rem;
+  }
+
+  .left-content ul {
+    text-align: left;
+    display: inline-block;
+    margin-top: 15px;
+  }
+
+  /* RIGHT section */
+  .right-panel {
+    width: 100%;
+    padding: 30px 15px;
+  }
+
+  .form-box {
+    max-width: 100%;
+  }
+
+  /* form card spacing */
+  .login-card {
+    padding: 20px;
+  }
+
+  /* logo smaller */
+  .logo-login {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* ================= SMALL PHONES ================= */
+@media (max-width: 480px) {
+
+  .left-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .left-content p {
+    font-size: 0.9rem;
+  }
+
+  .left-content li {
+    font-size: 0.85rem;
+  }
+
+  .form-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }

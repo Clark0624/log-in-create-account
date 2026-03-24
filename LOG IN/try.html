@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Navbar</title>
+
+<style>
+/* ================= NAVBAR ================= */
+.custom-navbar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #DBEAFE;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+}
+
+/* LAYOUT FIX */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* MOBILE BUTTON */
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Logo */
+.logo-icon {
+  width: 36px;
+  height: 36px;
+}
+
+/* SEARCH */
+.search-input {
+  width: 100%;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  border-radius: 12px;
+  padding: 8px 12px 8px 36px;
+}
+
+/* NAV LINKS */
+.nav-custom {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #334155;
+  text-decoration: none;
+}
+
+.nav-custom:hover {
+  background: #EFF6FF;
+}
+
+/* DROPDOWN FIX */
+.dropdown {
+  position: relative;
+}
+
+.custom-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #DBEAFE;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #1E3A5F;
+}
+
+.dropdown-item:hover {
+  background: #EFF6FF;
+}
+
+/* USER */
+.user-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #3B82F6;
+  color: white;
+  border: none;
+}
+
+/* CART */
+.cart-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* MOBILE */
+.mobile-menu {
+  display: none;
+  padding: 16px;
+}
+
+.mobile-cat {
+  background: #EFF6FF;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu.show {
+    display: block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="custom-navbar">
+  <div class="nav-container">
+
+    <!-- MOBILE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.png" class="logo-icon">
+      <div>
+        <div>My Store</div>
+        <div style="font-size:12px;color:#6B8DB5;">Best Products</div>
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search...">
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="nav-links">
+      <a href="#" class="nav-custom">Home</a>
+      <a href="#" class="nav-custom">Shop</a>
+      <a href="#" class="nav-custom">About</a>
+
+      <div class="dropdown">
+        <a href="#" class="nav-custom" onclick="toggleDropdown(event)">Categories ▾</a>
+        <div class="custom-dropdown" id="dropdownMenu">
+          <a href="#" class="dropdown-item">Category 1</a>
+          <a href="#" class="dropdown-item">Category 2</a>
+          <a href="#" class="dropdown-item">Category 3</a>
+        </div>
+      </div>
+
+      <a href="#" class="cart-btn">🛒</a>
+      <button class="user-btn">👤</button>
+    </div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-cat">Home</div>
+    <div class="mobile-cat">Shop</div>
+    <div class="mobile-cat">About</div>
+    <div class="mobile-cat">Category 1</div>
+    <div class="mobile-cat">Category 2</div>
+  </div>
+</nav>
+
+<script>
+function toggleDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById("dropdownMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
