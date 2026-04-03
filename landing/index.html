@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcadia Hobby House</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+
+<!-- ================= for log in ================= -->
+<div class="split-container">
+
+  <!-- LEFT SIDE -->
+  <div class="left-panel">
+    <!-- Animated background elements -->
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    
+    <img src="logopo.png" class="logo-login floating">
+    <div class="left-content">
+      <span class="badge-top">🎮 Welcome to Arcadia</span>
+      <h2 class="subtitle-fade">Arcadia Hobby House</h2>
+      <h1 class="main-title-fade">Where Every<br><span class="highlight">Hobby Begins</span></h1>
+
+      <p class="description-fade">
+        Welcome to Arcadia Hobby House — your destination for board games,
+        collectibles, LEGO, and creative hobbies.
+      </p>
+
+      <ul class="features-list">
+        <li class="feature-item" style="animation-delay: 0.2s"><i class="bi bi-check-circle-fill"></i> <span>Discover trending hobbies</span></li>
+        <li class="feature-item" style="animation-delay: 0.4s"><i class="bi bi-check-circle-fill"></i> <span>Explore collections</span></li>
+        <li class="feature-item" style="animation-delay: 0.6s"><i class="bi bi-check-circle-fill"></i> <span>Join hobby communities</span></li>
+      </ul>
+
+      <!-- Stats Section -->
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">5k+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">10k+</div>
+          <div class="stat-label">Members</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.8★</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE (LOGIN FORM) -->
+  <div class="right-panel">
+    <div class="form-box form-slide-in">
+
+      <div class="form-header text-center mb-4">
+        <h3 class="form-title">Welcome Back!</h3>
+        <p class="form-subtitle">Sign in to your account to continue</p>
+      </div>
+
+      <div class="card login-card p-4 shadow-enhanced">
+        <div id="errorBox" class="alert alert-danger d-none"></div>
+
+        <form id="loginForm">
+          <!-- Email Field -->
+          <div class="form-group mb-3">
+            <label class="form-label fw-semibold"><i class="bi bi-envelope-fill"></i> Email Address</label>
+            <input id="email" class="form-control input-custom" placeholder="you@example.com" required>
+            <small class="form-hint">We'll never share your email</small>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <label class="form-label fw-semibold"><i class="bi bi-lock-fill"></i> Password</label>
+              <a href="forgotpassword.html" class="forgot-link">Forgot Password?</a>
+            </div>
+            <div class="password-input-group">
+              <input id="password" type="password" class="form-control input-custom" placeholder="••••••••" required>
+              <button type="button" class="toggle-password" onclick="togglePassword()" title="Toggle password visibility">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me & Security -->
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">Keep me signed in on this device</label>
+          </div>
+
+          <!-- Sign In Button -->
+          <button type="submit" class="btn btn-primary btn-signin w-100 py-2 fw-semibold">
+            <i class="bi bi-box-arrow-in-right"></i> Sign In
+          </button>
+
+          <!-- Sign Up Link -->
+          <p class="text-center mt-4 signup-prompt">
+            Don't have an account?
+            <a href="../register/registeracc.html" class="signup-link fw-semibold">Create one today</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- Trust Indicators --> 
+      <div class="trust-badges mt-4 text-center">
+        <span class="trust-badge"><i class="bi bi-shield-lock"></i> Secure & Private</span>
+        <span class="trust-badge"><i class="bi bi-check-circle"></i> Trusted by 10k+ users</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
